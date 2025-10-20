@@ -1,19 +1,22 @@
-# Simple Dockerfile for the Node.js app
 FROM node:18-slim
 
+# Set environment for production
+ENV NODE_ENV=production
+
 # Create app directory
-WORKDIR src/app
+WORKDIR /usr/src/app
 
-# Copy all file in our project
-COPY package.json package-lock.json ./
+# Copy package manifests first to leverage Docker layer caching
+COPY package*.json ./
 
-# Install production dependencies only
-RUN npm install
+# Install production dependencies (use npm ci for reproducible builds)
+RUN npm ci --only=production
 
-COPY ..
+# Copy app source
+COPY . .
 
-# starting our application
-CMD ["npm", "start"]
-
-#exposing server port
+# Expose app port
 EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]
