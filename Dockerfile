@@ -9,7 +9,7 @@ COPY package.json
 package-lock.json .
 
 # Install production dependencies only
-RUN npm ci
+RUN npm install
 
 COPY ..
 
