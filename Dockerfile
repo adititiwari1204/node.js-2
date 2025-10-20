@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 COPY ./src/package.json ./app/
 
 # Install production dependencies (use npm ci for reproducible builds)
-RUN npm ci --only=production
+RUN npm istall
 
 # Copy app source
 COPY . .
