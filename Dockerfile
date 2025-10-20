@@ -1,19 +1,17 @@
 # Simple Dockerfile for the Node.js app
-FROM node:20-alpine
+FROM node:slim
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy package.json and package-lock.json if present
-COPY package*.json ./
-
-# Install production dependencies only
-RUN npm ci --only=production
-
-# Bundle app source
+# Copy all file in our project
 COPY . .
 
-ENV NODE_ENV=production
-EXPOSE 3000
+# Install production dependencies only
+RUN npm install
 
-CMD ["node", "index.js"]
+# starting our application
+CMD ["node", "server.js"]
+
+#exposing server port
+EXPOSE 3000
