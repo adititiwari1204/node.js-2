@@ -2,10 +2,10 @@
 FROM node:18-slim
 
 # Create app directory
-WORKDIR /app
+WORKDIR src/app
 
 # Copy all file in our project
-COPY package*.json./
+COPY package.json package-lock.json ./
 
 # Install production dependencies only
 RUN npm install
@@ -13,7 +13,7 @@ RUN npm install
 COPY ..
 
 # starting our application
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
 
 #exposing server port
 EXPOSE 3000
