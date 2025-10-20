@@ -1,0 +1,24 @@
+{
+  "name": "node.js-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Running tests...\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tejaswini2704/nodejs-demo-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tejaswini2704/nodejs-demo-app/issues"
+  },
+  "homepage": "https://github.com/tejaswini2704/nodejs-demo-app#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
